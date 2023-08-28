@@ -1,18 +1,23 @@
 // Take 2 2d arrays from the user and return a 2d array as their sum.
 // Note - rows and cols must be same of both the input matrix else throw an error message "Arrays must have the same dimensions"
 
-let firstArr = [[1,2,3],[4,5,6],[7,8,9]];
-let secondArr = [[9,8,7],[6,5,4],[3,2,1]];
+let firstArr = [[1, 21, 3], [4, 85, 6], [17, 8, 9]];
+let secondArr = [[29, 38,17], [16, 25, 14], [3, 2, 11]];
 
-let resultArr = []
+let matrixSum = (arr1, arr2) => {
+    if((arr1.length !== arr2.length) || (arr1[0].length !== arr2[0].length) )  return "Arrays are not of same dimension"
 
-if(firstArr.length === secondArr.length && firstArr[0].length === secondArr[0].length){
-    for(let i=0, j=0; i<=firstArr.length ; i++, j++ ){
-        resultArr.push(firstArr[i][j] + secondArr[i][j])
+    let res = new Array(arr1.length)
+    for (let i = 0; i < arr1[0].length; i++) {
+        res[i] = new Array(arr[0].length)
     }
 
-    console.log(resultArr);
+    for (let i = 0; i <= arr1.length - 1; i++) {
+        for (let j = 0; j <= arr2.length - 1; j++) {
+            res[i][j] = (arr1[i][j] + arr2[i][j]);   
+        }
+    }
+    return res
 }
-else{
-    console.log("Arrays must be of same dimensions");
-}
+
+console.log(matrixSum(firstArr, secondArr));
