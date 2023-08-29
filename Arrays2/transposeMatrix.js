@@ -7,16 +7,15 @@ let arr = [
 ];
 
 let transpose = (arr) => {
-    let res = new Array(arr.length)
-    for (let i = 0; i < arr[0].length; i++) {
-        res[i] = new Array(arr[0].length)
+    let res = new Array(arr[0].length)
+    for (let i = 0; i < arr.length; i++) {
+        res[i] = new Array(arr.length)
     }
 
     for (let i = 0; i <= arr.length - 1; i++) {
         for (let j = 0; j <= arr[0].length - 1; j++) {
             res[i][j] = arr[j][i]
         }
-        // res += "\n"
     }
 
     return res;

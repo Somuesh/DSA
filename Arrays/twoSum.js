@@ -10,11 +10,11 @@ let pairCheck = (arr, sum) => {
     let pairArr = [];
 
     for (let num of arr) {
-        if (map.has(sum-parseInt(num))) {
-            pairArr.push([num, sum-parseInt(num)])
+        if (map.has(sum-(+num))) {
+            pairArr.push([+num, sum - (+num)])
         }
         else {  
-            map.set(parseInt(num), num)
+            map.set(+num, +num)
         }
     }
     console.log(map)

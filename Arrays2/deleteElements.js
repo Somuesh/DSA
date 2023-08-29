@@ -5,7 +5,7 @@ let arr = inputValues.split(',');
 console.log("before",arr)
 for( let i= 0; i<arr.length;i++ ){
     
-    if( (parseInt(arr[i])%2 == 0 ) && (parseInt(arr[i])%3 == 0 ) ){
+    if( (parseInt(arr[i])%2 == 0 ) || (parseInt(arr[i])%3 == 0 ) ){
         
         arr.splice(i,1);
         console.log(i,arr)

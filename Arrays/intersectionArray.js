@@ -7,25 +7,19 @@ let firstArr = first.split(",");
 let secondArr = second.split(",");
 
 let intersectionCheck = (firstArr, secondArr) => {
-    let map = new Map();
-    let intersection = [];
-
-    for (let num of firstArr) {
-        map.set(num, 0);
-    }
-
-    for (let num of secondArr) {
-        if (map.has(num)) {
-            if(!intersection.includes(num)){
-             intersection.push(num);   
-            }
+    let set = new Set(firstArr);
+    let intersection = new Set()
+    
+    for(let i of secondArr){
+        if(set.has(i)){
+            intersection.add(i)
         }
-        else {
-            map.set(num, 0)
+        else{
+            continue;
         }
     }
-
-    return intersection.length ? intersection : "No intersection found";
+    
+    return intersection.size ? [...intersection] : "No intersection"
 }
 
 console.log(intersectionCheck(firstArr,secondArr));
