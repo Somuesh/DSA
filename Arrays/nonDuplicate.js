@@ -1,39 +1,26 @@
-//Single Duplicate value present:
-let inputValues = prompt("Enter integer values of array (separated by spaces): ");
+let arr = prompt("Enter comma seperated values: ")
 
-let nonDup = (inputValues) =>{
-    let arr = inputValues.split(" ");
+let dups = (arr) =>{
+    let array = arr.split(",");
     let map = new Map();
-    for( let num of arr){
-        if(map.has(num)) return num;
+    let nondups = []
+    for(let i of array){
+        if(map.has(i)){
+            map.set(i,map.get(i)+1);
+        }
         else{
-            map.set(num,num);
+            map.set(i, 1)
         }
     }
-
-    return "No Duplicate values found"
+    for(let [i,v] of map){
+        if(v==1){
+            nondups.push(i)
+        }
+        else{
+            continue;
+        }
+    }
+    return nondups;
 }
 
-console.log(nonDup(inputValues))
-
-
-//Multiple duplicates present:
-
-// let inputValues = prompt("Enter integer values of array (separated by spaces): ");
-// let nonDup = (inputValues) =>{
-//     let arr = inputValues.split(" ");
-//     let dups = [];
-//     let map = new Map();
-//     for( let num of arr){
-//         if(map.has(num)) {
-//             dups.push(num);
-//         }
-//         else{
-//             map.set(num,num);
-//         }
-//     }
-
-//     return dups.length ? dups : "No Duplicates present";
-// }
-
-// console.log(nonDup(inputValues))
+console.log(dups(arr))
